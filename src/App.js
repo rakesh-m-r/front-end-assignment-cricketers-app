@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import getPlayers from './API/get-players';
 import { useEffect, useState } from 'react';

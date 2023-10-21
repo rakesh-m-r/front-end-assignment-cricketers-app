@@ -1,4 +1,4 @@
-import { Button, Card, Flex, Row, Typography } from "antd"
+import { Button, Card, Flex, Typography } from "antd"
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import { getAge } from "../../Utils/utils";
 import getPlayers from "../../API/get-players";
@@ -10,10 +10,7 @@ export const DetailsPage = ({ data, setDetails }) => {
     const [similarPlayers, setSimilarPlayers] = useState([]);
     useEffect(() => {
         getPlayers({ type: data.type }).then(data => setSimilarPlayers(data));
-    }, [])
-    useEffect(() => {
-        getPlayers({ type: data.type }).then(data => setSimilarPlayers(data));
-    }, [data])
+    }, []);
 
     const SimilarPlayers = () =>
         similarPlayers.map((item, index) => {

@@ -71,8 +71,7 @@ export const Cricketers = ({ cricketersList, setDetails }) => {
     });
 
     const onChange = (pagination, filters, sorter) => {
-        console.log(filters, sorter);
-        console.log(sessionStorage.setItem('type', JSON.stringify(filters.type)))
+        sessionStorage.setItem('type', JSON.stringify(filters.type))
     }
     const COLUMNS = [{
         title: 'Name',
