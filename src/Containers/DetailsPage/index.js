@@ -10,18 +10,18 @@ export const DetailsPage = ({ data, setDetails }) => {
     const [similarPlayers, setSimilarPlayers] = useState([]);
     useEffect(() => {
         getPlayers({ type: data.type }).then(data => setSimilarPlayers(data));
-    }, []);
+    }, [data.type]);
 
     const SimilarPlayers = () =>
         similarPlayers.map((item, index) => {
-            if (data.id !== item.id) {
+            if (index < 5 && data.id !== item.id) {
                 return <Card key={data.id} className='similar-card' onClick={() => setDetails(item)} >
                     <Text strong>{item.name} </Text>
                     <p>
                         <Text strong>Rank : </Text>{data.rank}</p>
                     <p><Text strong>Points : </Text>{data.points}</p>
                 </Card>
-            }
+            }else return <></>
         })
 
     let DOB = new Date(data.dob).toDateString();
